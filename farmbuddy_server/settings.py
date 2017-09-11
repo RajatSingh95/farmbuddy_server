@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
+#import dj_database_url
+#db_from_env = dj_database_url.config(conn_max_age=500)
 
 
 import os
@@ -29,7 +29,7 @@ SECRET_KEY = '_cp1vc+@1g$)&!af&ldk6__zjc0jdybodpl7t-@565)60u6t(5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['farmbuddy-server.herokuapp.com']
+ALLOWED_HOSTS = ['farmbuddy-server.herokuapp.com','127.0.0.1','10.0.3.23']
 
 
 # Application definition
@@ -129,5 +129,5 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
-DATABASES['default'].update(db_from_env)
+#DATABASES['default'].update(db_from_env)
 
