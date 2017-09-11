@@ -9,7 +9,7 @@ def index(request):
 def farmerdetail(request):
 	if request.method == 'POST':
 		username = request.POST.get('username', None)
-		data = { 'farmer_detail': serializers.serialize('json', Farmer.objects.filter(pk=1)) }
+		data = { 'farmer_detail': serializers.serialize('json', Farmer.objects.all()) }
 		res = JsonResponse(data)
 		res['Access-Control-Allow-Origin']="*"
 		print(res)
