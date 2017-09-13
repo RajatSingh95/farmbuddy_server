@@ -4,11 +4,11 @@ import datetime
 
 # Create your models here.
 class Houses(models.Model):
-	HID=models.AutoField(primary_key=True,null=True)
+	HID=models.AutoField(primary_key=True)
 	point=models.PointField(default=Point(1,1),null=True)
 
 class Farms(models.Model):
-	FID=models.AutoField(primary_key=True,null=True)
+	FID=models.AutoField(primary_key=True)
 	plot=models.PolygonField(srid=4326,geography=True)
 	area=models.FloatField(default=0.0)
 	
