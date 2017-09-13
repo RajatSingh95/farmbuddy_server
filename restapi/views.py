@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
-from .models import Farmer
+from .models import *
 from django.core import serializers
 # Create your views here.
 def index(request):
