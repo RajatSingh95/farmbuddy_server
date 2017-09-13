@@ -18,7 +18,6 @@ class Farms(models.Model):
 		super().save(self)
 	
 class Farmer(models.Model):
-	FRID=models.AutoField(primary_key=True)
 	HID=models.ForeignKey(Houses,to_field='HID',on_delete=models.CASCADE)
 	name = models.CharField(max_length=250)
 	dob = models.DateField(max_length=250)
@@ -27,7 +26,6 @@ class Farmer(models.Model):
 	password = models.CharField(max_length=250)
 
 class Landlord(models.Model):
-	LID=models.AutoField(primary_key=True)
 	HID=models.ForeignKey(Houses,to_field='HID',on_delete=models.CASCADE)
 	FID=models.ForeignKey(Farms,to_field='FID',on_delete=models.CASCADE)
 	name = models.CharField(max_length=250)
