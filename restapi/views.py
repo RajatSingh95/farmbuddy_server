@@ -18,7 +18,7 @@ def farmerdetail(request):
 def mapdetail(request):
 	if request.method == 'POST':
 		username = request.POST.get('username', None)
-		data = { 'farmer_detail': serializers.serialize('json', Farms.objects.all(),geometry_field='plot') }
+		data = { 'farmer_detail': serializers.serialize('geojson', Farms.objects.all(),geometry_field='plot') }
 		res = JsonResponse(data)
 		res['Access-Control-Allow-Origin']="*"
 		print(res)
