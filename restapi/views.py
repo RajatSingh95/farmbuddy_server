@@ -9,7 +9,7 @@ def index(request):
 def farmerdetail(request):
 	if request.method == 'POST':
 		username = request.POST.get('username', None)
-		data = { 'farmer_detail': serializers.serialize('json', Farmer.objects.all()) }
+		data = { 'farmer_detail': serializers.serialize('json', Farmer.objects.all()  ) }
 		res = JsonResponse(data)
 		res['Access-Control-Allow-Origin']="*"
 		print(res)
@@ -23,3 +23,18 @@ def mapdetail(request):
 		res['Access-Control-Allow-Origin']="*"
 		print(res)
 		return res	
+
+def logindetail(request):
+	if request.method == 'POST':
+		username = request.POST.get('username', None)
+		passw = request.POST.get('password', None)
+		result=Landlord.objects.filter(mobile_no=username, password=passw)
+		if result:
+			data = { 'login':'success' ,'landlord_detail': serializers.serialize('json', result ) }
+		else :
+			data={'login': 'failed'}
+		res = JsonResponse(data)
+		res['Access-Control-Allow-Origin']="*"
+		print(res)
+		return res	
+
