@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'farmbuddy_server.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.gis.backends.postgis',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'group20',
         'USER': 'group20',
         'PASSWORD': '20',
