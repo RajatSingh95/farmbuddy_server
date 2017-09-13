@@ -1,10 +1,12 @@
-from django.contrib import admin
-from .models import Farmer,Landlord,Bid,Advertisement
+from django.contrib.gis import admin
+from .models import *
 
 
 # Register your models here.
-admin.site.register(Farmer)
-admin.site.register(Landlord)
-admin.site.register(Advertisement)
-admin.site.register(Bid)
+admin.site.register(Farms,admin.OSMGeoAdmin)
+admin.site.register(Houses,admin.OSMGeoAdmin)
+admin.site.register(Farmer,admin.OSMGeoAdmin)
+admin.site.register(Landlord,admin.OSMGeoAdmin)
+admin.site.register(Advertisement,admin.OSMGeoAdmin)
+admin.site.register(Bid,admin.OSMGeoAdmin)
 
