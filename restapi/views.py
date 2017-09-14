@@ -27,7 +27,7 @@ def mapdetail(request):
 def logindetail(request):
 	if request.method == 'POST':
 		username = request.POST.get('username', None)
-		passw = request.POST.get('password', None)
+		passw = request.POST.get('pswd', None)
 		result=Landlord.objects.filter(mobile_no=username, password=passw)
 		if result:
 			data = { 'login':'success' ,'landlord_detail': serializers.serialize('json', result ) }
