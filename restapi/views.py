@@ -23,7 +23,7 @@ def mapdetail(request):
 		res['Access-Control-Allow-Origin']="*"
 		print(res)
 		return res
-def mapdetail(request):
+def housedetail(request):
 	if request.method == 'POST':
 		username = request.POST.get('username', None)
 		data = { 'farmer_detail': serializers.serialize('geojson', Houses.objects.all(),geometry_field='point') }
