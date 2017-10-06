@@ -6,13 +6,13 @@ import datetime
 class Houses(models.Model):
 	HID=models.AutoField(primary_key=True)
 	point=models.PointField(default=Point(1,1),null=True)
-	file=models.ImageField(upload_to = 'images/houses/',null=True)
+	file=models.FileField(upload_to = 'images/houses/',null=True)
 
 class Farms(models.Model):
 	FID=models.AutoField(primary_key=True)
 	plot=models.PolygonField(srid=4326,geography=True)
 	area=models.FloatField(default=0.0)
-	file=models.ImageField(upload_to = 'images/farms/',null=True)
+	file=models.FileField(upload_to = 'images/farms/',null=True)
 	
 	def save(self):
 		temp=self.plot.transform(27700,clone=True)
@@ -23,7 +23,7 @@ class Wells(models.Model):
 	HID=models.ForeignKey(Houses,to_field='HID',on_delete=models.CASCADE)
 	point=models.PointField(default=Point(1,1),null=True)
 	depth=models.FloatField(default=0.0)
-	file=models.ImageField(upload_to = 'images/wells/',null=True)
+	file=models.FileField(upload_to = 'images/wells/',null=True)
 
 class Crops(models.Model):
 	Name=models.CharField(max_length=50,default="Rice")
