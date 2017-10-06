@@ -9,4 +9,6 @@ admin.site.register(Farmer,admin.OSMGeoAdmin)
 admin.site.register(Landlord,admin.OSMGeoAdmin)
 admin.site.register(Advertisement,admin.OSMGeoAdmin)
 admin.site.register(Bid,admin.OSMGeoAdmin)
-
+admin.site.register(Crops,admin.OSMGeoAdmin)
+admin.site.register(Wells,admin.OSMGeoAdmin)
+admin.site.register(Yields,admin.OSMGeoAdmin)
