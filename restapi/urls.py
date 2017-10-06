@@ -8,7 +8,7 @@ urlpatterns = [
     url( r'^mapdetail/' , views.mapdetail , name='mapdetail' ),
     url( r'^logindetail/' , views.logindetail , name='logindetail' ),
     url( r'^housedetail/' , views.housedetail , name='housedetail' ),
-
+    url( r'^cropdetail/' , views.cropdetail , name='cropdetail' ),
 ]
 
 

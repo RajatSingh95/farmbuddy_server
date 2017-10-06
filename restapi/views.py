@@ -32,6 +32,15 @@ def housedetail(request):
 		print(res)
 		return res 
 
+def cropdetail(request):
+	if request.method == 'POST':
+		farmid = request.POST.get('farm_id', None)
+		data = { 'cropd_detail': serializers.serialize('json', Crops.objects.filter(FID=farmid)) }
+		res = JsonResponse(data)
+		res['Access-Control-Allow-Origin']="*"
+		print(res)
+		return res 
+
 def logindetail(request):
 	if request.method == 'POST':
 		username = request.POST.get('username', None)
