@@ -38,7 +38,7 @@ class Crops(models.Model):
 	Year=models.IntegerField()
 	seasons=(('S',"Summer"),('W',"Winter"),('M',"Monsoon"))
 	Seasons=models.CharField(max_length=20,choices=seasons)
-	Yield=models.FloatField(default=0.0,null=true)
+	Yield=models.FloatField(default=0.0,null=True)
 	def __str__(self):
 		return "%s : %s" %(self.Name,self.Seasons)
 	
