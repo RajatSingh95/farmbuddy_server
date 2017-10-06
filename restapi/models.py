@@ -6,7 +6,7 @@ import datetime
 class Houses(models.Model):
 	HID=models.AutoField(primary_key=True)
 	point=models.PointField(default=Point(1,1),null=True)
-	file=models.ImageField(upload_to = 'images/houses/',,null=True)
+	file=models.ImageField(upload_to = 'images/houses/',null=True)
 
 class Farms(models.Model):
 	FID=models.AutoField(primary_key=True)
