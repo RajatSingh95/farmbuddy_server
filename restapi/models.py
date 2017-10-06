@@ -6,16 +6,32 @@ import datetime
 class Houses(models.Model):
 	HID=models.AutoField(primary_key=True)
 	point=models.PointField(default=Point(1,1),null=True)
+	file=models.ImageField(upload_to = 'images/houses/',,null=True)
 
 class Farms(models.Model):
 	FID=models.AutoField(primary_key=True)
 	plot=models.PolygonField(srid=4326,geography=True)
 	area=models.FloatField(default=0.0)
+	file=models.ImageField(upload_to = 'images/farms/',null=True)
 	
 	def save(self):
 		temp=self.plot.transform(27700,clone=True)
 		self.area=temp.area
 		super().save(self)
+class Wells(models.Model):
+	WID=models.AutoField(primary_key=True)
+	HID=models.ForeignKey(Houses,to_field='HID',on_delete=models.CASCADE)
+	point=models.PointField(default=Point(1,1),null=True)
+	depth=models.FloatField(default=0.0)
+	file=models.ImageField(upload_to = 'images/wells/',null=True)
+
+class Crops(models.Model):
+	Name=models.CharField(max_length=50,default="Rice")
+	FID=models.ForeignKey(Farms,to_field='FID',on_delete=models.CASCADE)
+	Year=models.IntegerField()
+	seasons=(('S',"Summer"),('W',"Winter"),('M',"Monsoon"))
+	Seasons=models.CharField(max_length=20,choices=seasons)
+
 	
 class Farmer(models.Model):
 	HID=models.ForeignKey(Houses,to_field='HID',on_delete=models.CASCADE)
@@ -45,5 +61,11 @@ class Bid(models.Model):
 	farmer_id = models.IntegerField()
 	advertisement_id = models.IntegerField()
 
+class Yields(models.Model):
+	WID=models.ForeignKey(Wells,to_field='WID',on_delete=models.CASCADE)
+	Yield=models.FloatField(default=0.0)
+	measured_date=models.DateField(default=datetime.date.today)
+	def __str__(self):
+		return "%s : %s" %(self.WID,self.WID)
 
 
