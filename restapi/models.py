@@ -30,6 +30,7 @@ class Wells(models.Model):
 	HID=models.ForeignKey(Houses,to_field='HID',on_delete=models.CASCADE)
 	point=models.PointField(default=Point(1,1),null=True)
 	depth=models.FloatField(default=0.0)
+	Yield=models.FloatField(default=0.0,null=True)
 	file=models.FileField(upload_to = 'images/wells/',null=True)
 	def __str__(self):
 		return "%s : %s" %(self.WID,self.depth)
