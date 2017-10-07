@@ -9,6 +9,7 @@ urlpatterns = [
     url( r'^logindetail/' , views.logindetail , name='logindetail' ),
     url( r'^housedetail/' , views.housedetail , name='housedetail' ),
     url( r'^cropdetail/' , views.cropdetail , name='cropdetail' ),
+    url( r'^welldetail/' , views.welldetail , name='welldetail' ),
 ]
 
 

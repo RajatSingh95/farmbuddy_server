@@ -32,6 +32,15 @@ def housedetail(request):
 		print(res)
 		return res 
 
+def welldetail(request):
+	if request.method == 'POST':
+		username = request.POST.get('username', None)
+		data = { 'well_detail': serializers.serialize('geojson', Wells.objects.all(),geometry_field='point') }
+		res = JsonResponse(data)
+		res['Access-Control-Allow-Origin']="*"
+		print(res)
+		return res 
+
 def cropdetail(request):
 	if request.method == 'POST':
 		farmid = request.POST.get('farm_id', None)
