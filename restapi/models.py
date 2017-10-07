@@ -7,6 +7,8 @@ class Houses(models.Model):
 	HID=models.AutoField(primary_key=True)
 	point=models.PointField(default=Point(1,1),null=True)
 	file=models.FileField(upload_to = 'images/houses/',null=True)
+	Members=models.IntegerField(null=True)
+	Income=models.IntegerField(null=True)
 	def __str__(self):
 		return "House : %s" %(self.HID)
 
