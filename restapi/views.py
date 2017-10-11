@@ -6,6 +6,9 @@ from django.core import serializers
 def index(request):
 	return HttpResponse('<h1> This is the RestApi. </h1>')
 
+
+# It respond to the request for Farmers Data in Json Format.
+
 def farmerdetail(request):
 	if request.method == 'POST':
 		username = request.POST.get('username', None)
@@ -15,6 +18,7 @@ def farmerdetail(request):
 		print(res)
 		return res
 
+# It respond to the request for Farms Data with co-ordinates of the polygon in GeoJson Format.
 def mapdetail(request):
 	if request.method == 'POST':
 		username = request.POST.get('username', None)
@@ -23,6 +27,8 @@ def mapdetail(request):
 		res['Access-Control-Allow-Origin']="*"
 		print(res)
 		return res
+
+# It respond to the request for Houses Data of farmer as well as landlord with pinpoint location of houses in GeoJson Format.
 def housedetail(request):
 	if request.method == 'POST':
 		username = request.POST.get('username', None)
@@ -30,7 +36,9 @@ def housedetail(request):
 		res = JsonResponse(data)
 		res['Access-Control-Allow-Origin']="*"
 		print(res)
-		return res 
+		return res
+
+# It respond to the request for Wells Data associated with the farms with pinpoint location in GeoJson Format. 
 
 def welldetail(request):
 	if request.method == 'POST':
@@ -39,7 +47,9 @@ def welldetail(request):
 		res = JsonResponse(data)
 		res['Access-Control-Allow-Origin']="*"
 		print(res)
-		return res 
+		return res
+
+# It respond to the request for Crop Data of the farm in Json Format.
 
 def cropdetail(request):
 	if request.method == 'POST':
@@ -50,6 +60,7 @@ def cropdetail(request):
 		print(res)
 		return res 
 
+# # It respond to the request for Authentication and return Data in case of successfull in Json Format.
 def logindetail(request):
 	if request.method == 'POST':
 		username = request.POST.get('username', None)
