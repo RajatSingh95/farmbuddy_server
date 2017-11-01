@@ -3,12 +3,12 @@ from .models import *
 
 
 # Register your models here.
-admin.site.register(Farms,admin.OSMGeoAdmin)
-admin.site.register(Houses,admin.OSMGeoAdmin)
-admin.site.register(Farmer,admin.OSMGeoAdmin)
-admin.site.register(Landlord,admin.OSMGeoAdmin)
-admin.site.register(Advertisement,admin.OSMGeoAdmin)
-admin.site.register(Bid,admin.OSMGeoAdmin)
-admin.site.register(Crops,admin.OSMGeoAdmin)
-admin.site.register(Wells,admin.OSMGeoAdmin)
-admin.site.register(Yields,admin.OSMGeoAdmin)
+admin.site.register(Farms,admin.GeoModelAdmin)
+admin.site.register(Houses,admin.GeoModelAdmin)
+admin.site.register(Farmer,admin.GeoModelAdmin)
+admin.site.register(Landlord,admin.GeoModelAdmin)
+admin.site.register(Advertisement,admin.GeoModelAdmin)
+admin.site.register(Bid,admin.GeoModelAdmin)
+admin.site.register(Crops,admin.GeoModelAdmin)
+admin.site.register(Wells,admin.GeoModelAdmin)
+admin.site.register(Yields,admin.GeoModelAdmin)
