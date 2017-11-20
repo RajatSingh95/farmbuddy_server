@@ -42,6 +42,7 @@ class Wells(models.Model):
 	point=models.PointField(default=Point(1,1),null=True)
 	depth=models.FloatField(default=0.0)
 	Yield=models.FloatField(default=0.0,null=True)
+	Area=models.CharField(max_length=100,null=True)
 	file=models.FileField(upload_to = 'images/wells/',null=True)
 	def __str__(self):
 		return "%s : %s" %(self.WID,self.depth)
