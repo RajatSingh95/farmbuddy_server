@@ -87,3 +87,11 @@ def statistic(request):
 			print(res)
 			return res
 
+		if ctype=="Wells":
+			result=Wells.objects.all()
+			data = { 'well_detail': serializers.serialize('json', result ) }
+			res = JsonResponse(data)
+			res['Access-Control-Allow-Origin']="*"
+			print(res)
+			return res
+
