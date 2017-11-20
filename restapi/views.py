@@ -94,4 +94,11 @@ def statistic(request):
 			res['Access-Control-Allow-Origin']="*"
 			print(res)
 			return res
+		if ctype=="Income":
+			result=Houses.objects.all()
+			data = { 'house_detail': serializers.serialize('json', result ) }
+			res = JsonResponse(data)
+			res['Access-Control-Allow-Origin']="*"
+			print(res)
+			return res
 
