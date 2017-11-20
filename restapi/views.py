@@ -63,9 +63,10 @@ def cropdetail(request):
 # # It respond to the request for Authentication and return Data in case of successfull in Json Format.
 def logindetail(request):
 	if request.method == 'POST':
-		username = request.POST.get('username', None)
-		passw = request.POST.get('pswd', None)
-		result=Landlord.objects.filter(mobile_no=username, password=passw)
+		username = request.POST.get('mobile', None)
+		password = request.POST.get('pass', None)
+		print(username,password)
+		result=Landlord.objects.filter(mobile_no=username, password=password)
 		if result:
 			data = { 'login':'success' ,'landlord_detail': serializers.serialize('json', result ) }
 		else :
