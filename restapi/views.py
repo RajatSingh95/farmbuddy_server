@@ -76,3 +76,14 @@ def logindetail(request):
 		print(res)
 		return res	
 
+def statistic(request):
+	if request.method == 'POST':
+		ctype = request.POST.get('type', None)
+		if ctype=="Rice":
+			result=Crops.objects.filter(Name=ctype)
+			data = { 'crop_detail': serializers.serialize('json', result ) }
+			res = JsonResponse(data)
+			res['Access-Control-Allow-Origin']="*"
+			print(res)
+			return res
+
